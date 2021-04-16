@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :username, :bookmarks
+  attributes :username, :bookmarks, :id
   def bookmarks 
     ActiveModel::SerializableResource.new(object.bookmarks,  each_serializer: BookmarkSerializer)
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_13_040439) do
+ActiveRecord::Schema.define(version: 2021_04_16_162656) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -23,11 +23,18 @@ ActiveRecord::Schema.define(version: 2021_04_13_040439) do
 
   create_table "cars", force: :cascade do |t|
     t.integer "price"
-    t.string "name"
-    t.string "brand"
+    t.string "model"
+    t.string "make"
     t.string "horsepower"
     t.string "torque"
-    t.string "bio"
+    t.string "img"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer "car_id"
+    t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -45,8 +52,6 @@ ActiveRecord::Schema.define(version: 2021_04_13_040439) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
-    t.string "bio"
-    t.string "avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

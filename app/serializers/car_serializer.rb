@@ -1,5 +1,6 @@
 class CarSerializer < ActiveModel::Serializer
-  attributes :id, :price, :name, :brand, :horsepower, :torque, :bio
-  has_many :reservations 
-  has_many :users, through: :reservations
+  attributes :id, :model, :make, :horsepower, :torque
+  has_many :photos
+  # has_many :reservations 
+  # has_many :users, through: :reservations
 end

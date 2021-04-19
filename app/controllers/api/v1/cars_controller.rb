@@ -1,5 +1,5 @@
 class Api::V1::CarsController < ApplicationController
-
+skip_before_action :authorized, only: [:index]
     def index 
         cars = Car.all
         render json: cars 

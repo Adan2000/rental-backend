@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       post '/bookmarks', to: 'bookmarks#create'
       delete '/bookmarks/:id', to: 'bookmarks#destroy'
       get '/cars', to: 'cars#index'
-      get '/car', to: 'cars#show' 
+      get '/car/:id', to: 'cars#show' 
       get '/reservations', to: 'reservations#index'
       get '/reservation', to: 'reservations#show'
       post '/reservation/new', to: 'reservations#create'

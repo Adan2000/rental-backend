@@ -1,5 +1,7 @@
 class Api::V1::BookmarksController < ApplicationController
 
+    skip_before_action :authorized, only: [:create, :index, :destroy, :show] 
+
     def index 
         bookmarks = Bookmark.all 
         render json: bookmarks
@@ -16,13 +18,14 @@ class Api::V1::BookmarksController < ApplicationController
     end
 
     def destroy 
+        # byebug
         bookmark = Bookmark.find(params[:id])
         bookmark.destroy
         render json: bookmark
     end
 
     def bookmark_params
-        params.permit(:car, :user)
+        params.require(:bookmark).permit(:car_id, :user_id)
     end
 
 
